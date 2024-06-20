@@ -30,7 +30,7 @@ public class Chat : MonoBehaviour {
     /// <summary>
     /// Max count to calc lines in input
     /// </summary>
-    const int MAX_LINE_CHARACTERS_COUNT = 33;
+    const int MAX_LINE_CHARACTERS_COUNT = 10;
 
     /// <summary>
     /// Line height to add when calc item height with text
@@ -118,7 +118,7 @@ public class Chat : MonoBehaviour {
         Debug.Log($"Keyboard height: {keyboardHeight}");
         Debug.Log($"Ratio: {ratio}");
 #endif 
-        MoveInputBox(keyboardHeight);
+        //MoveInputBox(keyboardHeight);
         SetInputBoxLines(CalculateLines(MultiInput.Text.Trim()));
     }
 
@@ -148,7 +148,7 @@ public class Chat : MonoBehaviour {
     /// </summary>
     public void OnMessageInputChanged(string value) {
         SetInputBoxLines(CalculateLines(value));
-    }
+    } 
 
     /// <summary>
     /// Calc how many lines in input box
@@ -187,8 +187,8 @@ public class Chat : MonoBehaviour {
         }
         lines /= 2;
         var height = _currentHeight + MIN_INPUT_HEIGHT + LINE_HEIGHT * lines;
-        InputRect.offsetMax = new Vector2(0f, height);
-        InputRect.offsetMin = new Vector2(0f, _currentHeight);
+        //InputRect.offsetMax = new Vector2(0f, height);
+        //InputRect.offsetMin = new Vector2(0f, _currentHeight);
         var min = ListRect.offsetMin;
         height = _currentHeight + CONTAINER_BOTTOM_OFFSET + LINE_HEIGHT * lines;
         var offset = (height > 0) ? height : CONTAINER_BOTTOM_OFFSET;
